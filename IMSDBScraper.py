@@ -51,6 +51,7 @@ class IMSDBScraper:
                 name_column_indent = self.find_name_column(btags) #of all the b tags, find which ones represent actors
                 script = self.parse_script(movie_title, name_column_indent)
                 if len(script) > 0:  # correct parsing
+                    script.insert(0,u.text)
                     scripts.append(script)
         return scripts
 
