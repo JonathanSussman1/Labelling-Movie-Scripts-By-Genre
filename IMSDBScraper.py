@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import requests
 import ssl
-import sys
 
 
 
@@ -33,7 +32,7 @@ class IMSDBScraper:
         elif (genre == 'all'):
             URLend = "all%20scripts/"
         else:
-            URLend = genre
+            URLend = "genre" + genre + "/"
         scripts = []
         res = requests.get("http://www.imsdb.com/all%20scripts/")
         parser = etree.XMLParser(recover=True)
