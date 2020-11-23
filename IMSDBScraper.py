@@ -5,12 +5,13 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import requests
 import ssl
+import sys
 
 
 
 class IMSDBScraper:
 
-    def __init__(self, n_scripts=10):
+    def __init__(self, n_scripts, genre):
         """Constructor of the IMSDBParser class
         Args:
             n_scripts: number of scripts to be scraped (default:10)
@@ -18,15 +19,21 @@ class IMSDBScraper:
             IOError: if one of the movies isn't found
         """
         # self.htmlParser = etree.HTMLParser()
-        self.scripts = self.load_scripts(n_scripts)
+        self.scripts = self.load_scripts(n_scripts, genre)
 
-    def load_scripts(self, n_scripts):
+    def load_scripts(self, n_scripts, genre):
         """Load scripts from the IMSDB
         Args:
             n_scripts: number of scripts to be scraped (default:10)
         Returns:
             A list of parsed scripts
         """
+        if (genre not in ['all','Action','Comedy','Family','Horror','Romance','Thriller','Adventure', 'Crime', 'Fantasy', 'Musical', 'Sci-Fi', 'War', 'Animation', 'Drama', 'Film-Noir', 'Mystery', 'Short', 'Western'] ):
+            sys.exit("IMSDBScraper called with invalid genre")
+        elif (genre == 'all'):
+            URLend = "all%20scripts/"
+        else:
+            URLend = genre
         scripts = []
         res = requests.get("http://www.imsdb.com/all%20scripts/")
         parser = etree.XMLParser(recover=True)
