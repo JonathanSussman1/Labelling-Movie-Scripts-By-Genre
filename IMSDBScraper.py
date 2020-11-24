@@ -47,7 +47,7 @@ class IMSDBScraper:
                 continue
             # load list of all <b> tags
             btags = [speaker.text for speaker in script if speaker.text is not None and speaker.text.strip() != ""]
-            if len(btags) > 50:  # the movie contains a reasonable number of lines
+            if len(btags) > 10:  # the movie contains a reasonable number of lines
                 name_column_indent = self.find_name_column(btags) #of all the b tags, find which ones represent actors
                 script = self.parse_script(movie_title, name_column_indent)
                 if len(script) > 0:  # correct parsing
