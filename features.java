@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 //This program is gonna collect the data that I'm gonna put into the GMM, input is a directory that is called along with the file
 //
-//Program runs through directory and calculates features. Program assumes genres are going to be listed in line one as numbers, separated by spaces
+//Program runs through directory and calculates features. Program assumes genres are going to be listed in line one as numbers, separated by spaces. We can work out a table for what number corresponds to what genre later
 public class features {
     static ArrayList[] genres = new ArrayList[11]; //support about 11 genres so far (we can tweak)
     static ArrayList<Integer> genreHelper = new ArrayList<Integer>();
