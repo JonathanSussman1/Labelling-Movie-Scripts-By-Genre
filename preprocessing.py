@@ -17,7 +17,7 @@ class PreprocessingObj:
   #                                   + n_scripts_to_randomly_remove > the number of scripts available from IMSDB,
   #                                   the program will not work.
   #     n_genre_scripts_to_add: number of total scripts to be added to self.genrescripts PER EACH GENRE
-  #
+  #     
    def __init__(self, n_scripts_to_add, n_scripts_to_randomly_remove, n_genre_scripts_to_add, n_genre_scripts_to_randomly_remove):
       self.scripts = (self.load_scripts_corpus(n_scripts_to_add, n_scripts_to_randomly_remove, n_genre_scripts_to_add, n_genre_scripts_to_randomly_remove))
       self.allscripts = self.scripts[0]
@@ -142,4 +142,5 @@ class PreprocessingObj:
       "Adventure":Adventurescripts, "Crime":Crimescripts, "Fantasy":Fantasyscripts, \
       "Musical":Musicalscripts, "Sci-Fi":Scifiscripts, "War":Warscripts, "Animation":Animationscripts, \
       "Drama":Dramascripts, "Film-Noir":Filmnoirscripts, "Mystery":Mysteryscripts, "Short":Shortscripts, "Western":Westernscripts}
+      print ((len(allscripts), len(genrescripts)))
       return [allscripts, genrescripts]
